@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Annapurna Distributors</title>
+    <title>Dai Call Rental Service</title>
 
     <!-- CSS -->
     <!-- Add Material font (Roboto) and Material icon as needed -->
@@ -28,9 +28,8 @@
         <button id="drawer_switcher" aria-controls="navdrawerDefault" aria-expanded="false"
             aria-label="Toggle Navdrawer" class="navbar-toggler" data-target="#navdrawerDefault"
             data-toggle="navdrawer"><span class="navbar-toggler-icon"></span></button>
-        <span class="navbar-brand mr-auto">Online Job Portal</span>
-        <div>
-            <a href="/logout" class="text-white"><i class="material-icons mr-3">logout</i></a>
+        <span class="navbar-brand mr-auto">Dai Call Rental Service</span>
+        <div> 
         </div>
     </header>
 
@@ -38,20 +37,24 @@
         <div class="navdrawer-content">
 
             <nav class="navdrawer-nav">
-                <a class="nav-item nav-link" href="/dashboard">
-                    {{-- <i class="material-icons mr-3">dashboard</i> --}}
-                    Dashboard
+                <a class="nav-item nav-link" href="/admin/vehicle"> 
+                    Vehicle
+                </a> 
+                <a class="nav-item nav-link" href="/admin/driver"> 
+                    Driver
+                </a> 
+                <a class="nav-item nav-link" href="/admin/booking"> 
+                    Booking
+                </a> 
+                <a class="nav-item nav-link" href="/admin/clients"> 
+                    Clients
+                </a> 
+                @if (Auth::check())
+                <a class="nav-item nav-link" href="/logout">
+                    {{-- <i class="material-icons mr-3">logout</i> --}}
+                    Logout
                 </a>
-                <a class="nav-item nav-link" href="/job-posts">
-                    Job Posts
-                </a>
-                <a class="nav-item nav-link" href="/employers">
-                    Employers
-                </a>
-                <a class="nav-item nav-link" href="/jobseekers">
-                    Jobseekers
-                </a>
-
+                @endif
             </nav>
             <div class="navdrawer-divider"></div>
 
@@ -61,6 +64,7 @@
     <div class="container-fluid mt-3">
 
         @yield('content')
+        <div class="my-4"></div>
     </div>
     {{-- </main> --}}
 
