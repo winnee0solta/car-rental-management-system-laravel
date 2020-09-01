@@ -228,6 +228,7 @@ class MainController extends Controller
 
         return redirect('/admin/driver');
     }
+    // / 
 
     public function driverEdit($driver_id, Request $request)
     {
@@ -271,6 +272,21 @@ class MainController extends Controller
             $driver->status =  $request->status;
 
             $driver->save();
+        }
+
+
+        return redirect('/admin/driver');
+    }
+    public function driverdelete($driver_id )
+    { 
+
+        $driver =  Driver::find($driver_id);
+        if ($driver) {
+ 
+            Booking::where('driver_id', $driver->id)->delete();
+            Vehicledriver::where('driver_id', $driver->id)->delete();
+            
+            $driver->delete();
         }
 
 

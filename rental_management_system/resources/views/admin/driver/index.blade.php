@@ -60,9 +60,13 @@
                                     data-target="#editModal-{{$item['id']}}">
                                     Edit
                                 </button>
+                                <button type="button" class="btn btn-danger btn-sm ml-3" data-toggle="modal"
+                                    data-target="#deleteModal-{{$item['id']}}">
+                                    Delete
+                                </button>
 
-                                <a href="/admin/driver/delete/{{$item['id']}}"
-                                    class="btn btn-danger btn-sm ml-3">Delete</a>
+                                {{-- <a href="/admin/driver/delete/{{$item['id']}}"
+                                    class="btn btn-danger btn-sm ml-3">Delete</a> --}}
 
                             </div>
                         </td>
@@ -211,6 +215,28 @@
 
                     </div>
                     <button type="submit" class="btn btn-success">Edit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="deleteModal-{{$item['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Driver Detail ?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/admin/driver/delete/{{$item['id']}}}" method="GET" >
+                    @csrf 
+                    <button type="submit" class="btn btn-success">Delete</button>
                 </form>
             </div>
             <div class="modal-footer">

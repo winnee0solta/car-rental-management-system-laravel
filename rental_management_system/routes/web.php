@@ -75,6 +75,8 @@ Route::middleware(['auth', 'checkifadmin'])->group(function () {
     Route::get('/admin/driver', 'hq\MainController@driverIndex');
     Route::post('/admin/driver/add', 'hq\MainController@driverAdd');
     Route::post('/admin/driver/edit/{driver_id}', 'hq\MainController@driverEdit');
+    Route::get('/admin/driver/delete/{driver_id}', 'hq\MainController@driverdelete');
+ 
 
     Route::get('/admin/vehicle/{vehicle_id}/add-driver/{driver_id}', 'hq\MainController@vehicleDriverAdd');
     Route::get('/admin/vehicle/{vehicle_id}/remove-driver/{driver_id}', 'hq\MainController@vehicleDriverRemove');
